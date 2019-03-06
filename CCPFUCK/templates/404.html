@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}FILE NOT FOUND{% endblock %}
+
+{% block main_content %}
+    <div class="container">
+    <div class="ad">
+            <div>
+                <div class="item">
+                    <a href="{% url 'index' %}">
+                        <img src="/static/img/404img.jpg"
+                         srcset="/static/img/404img-4.jpg 480w, /static/img/404img-8.jpg 800w, /static/img/404img.jpg 1200w">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

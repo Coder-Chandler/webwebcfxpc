@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block title %}TRUTH{% endblock %}
+
+{% block main_content %}
+
+    <!--主体-->
+    <div class="container">
+        <!--退党-->
+        <div class="ad">
+            <div>
+                <div class="item">
+                    <a href="{% url 'gfw' %}">
+                        <img src="/static/img/ad001.png"
+                         srcset="/static/img/ad001.png 480w, /static/img/ad001-m.png 800w, /static/img/ad001-l.png 1600w">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <section class="product clearfix">
+            <div id="home_grid">
+                {% for article in all_article.object_list %}
+                    <div class="home_grid_block">
+                        <div class="home_grid_thumb">
+                            <a href="{% url 'article:article_detail' article.id %}"
+                               rel="bookmark" title="{{ article.name }}">
+                                {#                                <img src="{{ MEDIA_URL }}{{ article.image }}">#}
+                            </a>
+                        </div><!--.home_grid_thumb-->
+                        <div class="grid_article">
+                            <h3>
+                                <a href="{% url 'article:article_detail' article.id %}" rel="bookmark"
+                                   title="{{ article.name }}">
+                                    {{ article.name }}
+                                </a>
+                            </h3>
+
+                            {{ article.desc }}
+                            <div class="grid_article_date">
+                                {{ article.add_time }}
+                            </div>
+
+                        </div>
+                    </div>
+                {% endfor %}
+                <div class="clear"></div>
+
+{#                <div class="view_all_articles">#}
+{#                    <a href="">更多文章 »</a>#}
+{#                </div>#}
+            </div>
+        </section>
+    <div class="pageturn">
+        <ul class="pagelist">
+            {% if all_orgs.has_previous %}
+                <li class="long"><a href="?{{ all_article.previous_page_number.querystring }}">上一页</a></li>
+            {% endif %}
+            {% for page in all_article.pages %}
+                {% if page %}
+                    {% ifequal page all_article.number %}
+                        <li class="active"><a href="?{{ page.querystring }}">{{ page }}</a></li>
+                    {% else %}
+                        <li><a href="?{{ page.querystring }}" class="page">{{ page }}</a></li>
+                    {% endifequal %}
+                {% else %}
+                    <li class="none"><a href="">...</a></li>
+                {% endif %}
+            {% endfor %}
+            {% if all_article.has_next %}
+                <li class="long"><a href="?{{ all_article.next_page_number.querystring }}">下一页</a></li>
+            {% endif %}
+        </ul>
+    </div>
+         <section class="product clearfix">
+            <h2>
+                <a href="{% url 'gfw' %}">BREAK GFW</a>
+                {% for article in article_gfw.all %}
+                <em><a href="{% url 'article:article_detail' article.id %}">{{ article.name }}</a></em>
+                {% endfor %}
+            </h2>
+            <h2>
+                <a href="{% url 'truth' %}">THE TRUTH</a>
+                {% for article in article_truth.all %}
+                <em><a href="{% url 'article:article_detail' article.id %}">{{ article.name }}</a></em>
+                {% endfor %}
+            </h2>
+            <h2>
+                <a href="{% url 'wumao' %}">WUMAO BITCH</a>
+                {% for article in article_wumao.all %}
+                <em><a href="{% url 'article:article_detail' article.id %}">{{ article.name }}</a></em>
+                {% endfor %}
+            </h2>
+            <h2>
+                <a href="{% url 'sinccp' %}">SIN OF CCP</a>
+                {% for article in article_sin.all %}
+                <em><a href="{% url 'article:article_detail' article.id %}">{{ article.name }}</a></em>
+                {% endfor %}
+            </h2>
+            <h2>
+                <a href="{% url 'nanjmass' %}">NANJING MASSACRE</a>
+               {% for article in article_nanjing.all %}
+                <em><a href="{% url 'article:article_detail' article.id %}">{{ article.name }}</a></em>
+                {% endfor %}
+            </h2>
+        </section>
+        <!--快捷导航-->
+    </div>
+{% endblock %}

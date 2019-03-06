@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}TRUTH{% endblock %}
+
+{% block main_content %}
+    <!--主体-->
+    <div class="home_grid_block">
+        <div class="home_grid_thumb">
+            <a href=""
+               rel="bookmark" title="{{ article.name }}">
+            </a>
+        </div>
+        <div class="grid_article">
+            <h1>
+                {{ article.name }}
+            </h1>
+            <div class="grid_article_date">
+                {{ article.add_time }}
+            </div>
+            {% autoescape off %}
+                {{ article.detail }}
+            {% endautoescape %}
+            <div class="grid_article_date">
+                {{ article.add_time }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

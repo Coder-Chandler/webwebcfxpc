@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <!--兼容ie浏览器（ie=edge 表示强制以最新的ie浏览器渲染页面）-->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="icon" href="/static/img/zhen.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/static/img/zhen.ico" type="image/x-icon">
+    <title>{% block title %}TRUTH{% endblock %}</title>
+    <!--统一视口尺寸-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <!--<link rel="stylesheet" href="js/vendor/OwlCarousel2-2.3.4/docs/assets/owlcarousel/assets/owl.carousel.min.css">-->
+    <!--<link rel="stylesheet" href="js/vendor/OwlCarousel2-2.3.4/docs/assets/css/docs.theme.min.css">-->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+</head>
+<body>
+<!--[if lte IE8]>
+<p class="browserupgrade">您的浏览器版本老的扑街！赶紧去
+    <a href="https://browsehappy.com">这里</a>
+    更新你的浏览器，以获得最佳体验!
+</p>
+<![endif]-->
+
+<!--页眉-->
+<header>
+{#    <!--顶部导航-->#}
+{#    <!--<nav class="top">-->#}
+{#    <!--<span class="tel">TRUTH：400-888-8888</span>-->#}
+{#    <!--<ul>-->#}
+{#    <!--<li><a href="#">登录</a></li>-->#}
+{#    <!--<li><a href="#">注册</a></li>-->#}
+{#    <!--<li><a href="#">关于</a></li>-->#}
+{#    <!--<li><a href="#">帮助</a></li>-->#}
+{#    <!--<li><a href="#">app下载</a></li>-->#}
+{#    <!--</ul>-->#}
+{#    <!--</nav>-->#}
+
+    <!--主导航-->
+    <nav class="main">
+        <a href="{% url 'index' %}" class="brand"><img src="/static/img/logo@1x.png" alt="回到首页"></a>
+        <ul>
+            <li><a href="{% url 'gfw' %}">翻墙GFW</a></li>
+            <li><a href="{% url 'truth' %}">真相TRUTH</a></li>
+            <li><a href="{% url 'wumao' %}">五毛WUMAO</a></li>
+            <li><a href="{% url 'sinccp' %}">中共罪恶SIN OF CCP</a></li>
+            <li><a href="{% url 'nanjmass' %}">南京大屠杀NJMASSACRE</a></li>
+        </ul>
+    </nav>
+</header>
+<!--顶部链接-->
+<section class="transaction">
+    <!--退出共产党-->
+    <div class="trans-content">
+        <div class="trans-data">
+            <span>至今已脱党/团/队人数</span>
+            {% for num in  out_ccp_num.all%}
+            <span class="trans-money">{{ num }}</span>
+            {% endfor %}
+
+            <span>万人</span>
+        </div>
+{#        <!--<div class="trans-data">-->#}
+{#        <!--<span>今年已脱党/团/队人数</span>-->#}
+{#        <!--<span class="trans-money">1425</span>-->#}
+{#        <!--<span>万人</span>-->#}
+{#        <!--</div>-->#}
+        <div class="trans-report">
+            <a href="https://www.tuidang.org/">退党服务中心Withdraw CCP</a>
+        </div>
+    </div>
+</section>
+
+{% block main_content %}
+    <!--主体-->
+{#    <div class="container">#}
+{#        <!--广告内容-->#}
+{#        <div class="ad">#}
+{#            <div>#}
+{#                <div class="item">#}
+{#                    <img src="/static/img/ad001-l.png"#}
+{#                         srcset="/static/img/ad001.png 480w, /static/img/ad001-m.png 800w, /static/img/ad001-l.png 1600w">#}
+{#                </div>#}
+{##}
+{#            </div>#}
+{#        </div>#}
+{#        <!--功能-->#}
+{#        <!--<section class="feature">-->#}
+{#        <!--<div class="item">-->#}
+{#        <!--<h3>真相</h3>-->#}
+{#        <!--<p>权力的欲望<br>人民的思想<br>中国假反腐</p>-->#}
+{#        <!--</div>-->#}
+{#        <!--<div class="item">-->#}
+{#        <!--<h3>明主</h3>-->#}
+{#        <!--<p>明主的灯塔<br>互联网百强企业<br>标准起草单位</p>-->#}
+{#        <!--</div>-->#}
+{#        <!--<div class="item">-->#}
+{#        <!--<h3>自由</h3>-->#}
+{#        <!--<p>100元起投<br>用户利益保障机制<br>保险公司担保</p>-->#}
+{#        <!--</div>-->#}
+{#        <!--</section>-->#}
+{##}
+{#        <!--最新公告-->#}
+{#        <!--<div class="notice clearfix">-->#}
+{#        <!--<a href="#">-->#}
+{#        <!--<span>2019-02-01</span>-->#}
+{#        <!--春节期间业务受理及值班公告春节期间业务受理及值班公告春节期间业务受理及值班公告-->#}
+{#        <!--</a>-->#}
+{#        <!--<a href="#" class="more">更多公告</a>-->#}
+{#        <!--</div>-->#}
+{##}
+{##}
+{#        <!--产品-->#}
+{##}
+{##}
+{#        <section class="product clearfix">#}
+{#            <div id="home_grid">#}
+{#                {% for article in all_article.object_list %}#}
+{#                {% endfor %}#}
+{#                <div class="home_grid_block">#}
+{#                    <div class="home_grid_thumb">#}
+{#                        <a href=""#}
+{#                           rel="bookmark" title="">#}
+{#                            <img src="https://chinadigitaltimes.net/chinese/files/2019/02/OqQr-htptaqf3034449-220x30.jpg">#}
+{#                        </a>#}
+{#                    </div><!--.home_grid_thumb-->#}
+{#                    <div class="grid_article">#}
+{#                        <h3>#}
+{#                            <a href="" rel="bookmark" title="">#}
+{#                                【CDTV】儿歌《华为美》：天下手机谁最美？大家都说是华为#}
+{#                            </a>#}
+{#                        </h3>#}
+{##}
+{#                        据新浪科技报道，今日微博一则《华为美》的歌曲MV引发极大关注。华为官方官微@花粉俱乐部#}
+{#                        对此回应称，这部作品是在华为不知情、未参与的情况下由网友自发创作。然而，有网友检索词曲作者信息发现，疑似其均具有中#}
+{#                        <div class="grid_article_date">#}
+{#                            2019年2月27日#}
+{#                        </div>#}
+{#                        <!--.grid_article_date-->#}
+{#                    </div><!--home_grid_article-->#}
+{#                </div>#}
+{#                <div class="home_grid_block">#}
+{#                    <div class="home_grid_thumb">#}
+{#                        <a href=""#}
+{#                           rel="bookmark" title="Permanent Link to 狐度 | 别让舆论总为正当防卫焦虑">#}
+{#                            <img src="https://chinadigitaltimes.net/chinese/files/2019/02/3-4-220x30.jpeg">#}
+{#                        </a>#}
+{#                    </div><!--.home_grid_thumb-->#}
+{#                    <div class="grid_article">#}
+{#                        <h3><a#}
+{#                                href=""#}
+{#                                rel="bookmark" title="Permanent Link to 狐度 | 别让舆论总为正当防卫焦虑">狐度 | 别让舆论总为正当防卫焦虑 </a></h3>#}
+{##}
+{#                        文章原标题：河北涞源反杀案，别让舆论总为正当防卫焦虑#}
+{#                        文丨徐媛#}
+{##}
+{##}
+{#                        伴随着舆论的高度关注，河北涞源反杀案有了最新进展：2月24日，河北省保定市涞源县公安局做出决定：不追究小菲（化名）刑责，解除“取保候审#}
+{#                        <div class="grid_article_date">#}
+{#                            2019年2月26日#}
+{#                        </div><!--.grid_article_date-->#}
+{#                    </div><!--home_grid_article-->#}
+{#                </div>#}
+{#                <div class="home_grid_block">#}
+{#                    <div class="home_grid_thumb">#}
+{#                        <a href=""#}
+{#                           rel="bookmark" title="Permanent Link to 人权观察 |中国审查机器如何跨越国界、影响西方政治">#}
+{#                            <img#}
+{#                                    src="https://chinadigitaltimes.net/chinese/files/2019/02/201902asia_china_wechat_0-220x30.jpg">#}
+{#                        </a>#}
+{#                    </div><!--.home_grid_thumb-->#}
+{#                    <div class="grid_article">#}
+{#                        <h3><a#}
+{#                                href=""#}
+{#                                rel="bookmark" title="Permanent Link to 人权观察 |中国审查机器如何跨越国界、影响西方政治">人权观察#}
+{#                            |中国审查机器如何跨越国界、影响西方政治 </a></h3>#}
+{##}
+{#                        发表于 The Washington Post#}
+{#                        作者：王亚秋&nbsp; 中国部研究员#}
+{##}
+{#                        2016年9月美国总统大选期间，微信（结合手机应用的中文社交媒体平台）有一则帖子让我吃了一惊。我的一位中国朋友分享了一个中#}
+{#                        <div class="grid_article_date">#}
+{#                            2019年2月26日#}
+{#                        </div><!--.grid_article_date-->#}
+{#                    </div><!--home_grid_article-->#}
+{#                </div>#}
+{#                <div class="home_grid_block">#}
+{#                    <div class="home_grid_thumb">#}
+{#                        <a href=""#}
+{#                           rel="bookmark" title="Permanent Link to 自由亚洲 | 文革洗脑重来 “大喇叭工程”逾200县市">#}
+{#                            <img src="https://chinadigitaltimes.net/chinese/files/2019/02/image-2-220x30.jpg">#}
+{#                        </a>#}
+{#                    </div><!--.home_grid_thumb-->#}
+{#                    <div class="grid_article">#}
+{#                        <h3><a#}
+{#                                href=""#}
+{#                                rel="bookmark" title="Permanent Link to 自由亚洲 | 文革洗脑重来 “大喇叭工程”逾200县市">自由亚洲 | 文革洗脑重来#}
+{#                            “大喇叭工程”逾200县市 </a></h3>#}
+{##}
+{##}
+{#                        在文化大革命时期，高音喇叭被视为重要宣传工具，成为不少人日常生活的一部分。时隔数十年，同类广播模式再度出现，并且在短时间内，遍及全国十多个省市的农村。在通信技术日新月异的今天，高音#}
+{#                        <div class="grid_article_date">#}
+{#                            2019年2月26日#}
+{#                        </div><!--.grid_article_date-->#}
+{#                    </div><!--home_grid_article-->#}
+{#                </div>#}
+{#                <div class="home_grid_block">#}
+{#                    <div class="home_grid_thumb">#}
+{#                        <a href=""#}
+{#                           rel="bookmark" title="Permanent Link to 人权观察 |中国审查机器如何跨越国界、影响西方政治">#}
+{#                            <img#}
+{#                                    src="https://chinadigitaltimes.net/chinese/files/2019/02/201902asia_china_wechat_0-220x30.jpg">#}
+{#                        </a>#}
+{#                    </div><!--.home_grid_thumb-->#}
+{#                    <div class="grid_article">#}
+{#                        <h3><a#}
+{#                                href=""#}
+{#                                rel="bookmark" title="Permanent Link to 人权观察 |中国审查机器如何跨越国界、影响西方政治">人权观察#}
+{#                            |中国审查机器如何跨越国界、影响西方政治 </a></h3>#}
+{##}
+{#                        发表于 The Washington Post#}
+{#                        作者：王亚秋&nbsp; 中国部研究员#}
+{##}
+{#                        2016年9月美国总统大选期间，微信（结合手机应用的中文社交媒体平台）有一则帖子让我吃了一惊。我的一位中国朋友分享了一个中#}
+{#                        <div class="grid_article_date">#}
+{#                            2019年2月26日#}
+{#                        </div><!--.grid_article_date-->#}
+{#                    </div><!--home_grid_article-->#}
+{#                </div>#}
+{#                <div class="home_grid_block">#}
+{#                    <div class="home_grid_thumb">#}
+{#                        <a href=""#}
+{#                           rel="bookmark" title="Permanent Link to 人权观察 |中国审查机器如何跨越国界、影响西方政治">#}
+{#                            <img#}
+{#                                    src="https://chinadigitaltimes.net/chinese/files/2019/02/201902asia_china_wechat_0-220x30.jpg">#}
+{#                        </a>#}
+{#                    </div><!--.home_grid_thumb-->#}
+{#                    <div class="grid_article">#}
+{#                        <h3><a#}
+{#                                href=""#}
+{#                                rel="bookmark" title="Permanent Link to 人权观察 |中国审查机器如何跨越国界、影响西方政治">人权观察#}
+{#                            |中国审查机器如何跨越国界、影响西方政治 </a></h3>#}
+{##}
+{#                        发表于 The Washington Post#}
+{#                        作者：王亚秋&nbsp; 中国部研究员#}
+{##}
+{#                        2016年9月美国总统大选期间，微信（结合手机应用的中文社交媒体平台）有一则帖子让我吃了一惊。我的一位中国朋友分享了一个中#}
+{#                        <div class="grid_article_date">#}
+{#                            2019年2月26日#}
+{#                        </div><!--.grid_article_date-->#}
+{#                    </div><!--home_grid_article-->#}
+{#                </div>#}
+{#                <div class="clear"></div>#}
+{##}
+{#                <div class="view_all_articles">#}
+{#                    <a href="">更多文章 »</a>#}
+{#                </div>#}
+{##}
+{##}
+{#            </div>#}
+{#        </section>#}
+{#        <section class="product clearfix">#}
+{#            <h2>#}
+{#                <a href="">FUCK GFW</a>#}
+{#                <em><a href="">huyang│中央戏剧学院女教授抄剽成瘾</a></em>#}
+{#                <em><a href="">豆瓣 | 在新疆的一些记录</a></em>#}
+{#                <em><a href="">一颗土逗 | 接受中国援助的柬埔寨，民众生活变好了吗？</a></em>#}
+{#                <em><a href="">纪青春 | 内地禁止上映的《死灵魂》，却是我们最后的良知</a></em>#}
+{#            </h2>#}
+{#            <h2>#}
+{#                <a href="">THE TRUTH</a>#}
+{#                <em><a href=""></a>真理部】李锐去世</em>#}
+{#                <em><a href=""></a>【网络民议】中国人民感情被伤害的频率远高于性生活</em>#}
+{#                <em><a href=""></a>【网络民议】“母亲成了诈骗受害者，反而被禁止坐高铁”</em>#}
+{#                <em><a href=""></a>【真理部】“寒门状元之死”</em>#}
+{#            </h2>#}
+{#            <h2>#}
+{#                <a href="">WUMAO BITCH</a>#}
+{#                <em>【众人推】最高法院，呜呼哀哉</em>#}
+{#                <em>【网络民议】中国人民感情被伤害的频率远高于性生活</em>#}
+{#                <em>【网络民议】“母亲成了诈骗受害者，反而被禁止坐高铁”</em>#}
+{#                <em>【真理部】“寒门状元之死”</em>#}
+{#            </h2>#}
+{#            <h2>#}
+{#                <a href="">SIN OF CCP</a>#}
+{#                <em>【众人推】最高法院，呜呼哀哉</em>#}
+{#                <em>【网络民议】中国人民感情被伤害的频率远高于性生活</em>#}
+{#                <em>【网络民议】“母亲成了诈骗受害者，反而被禁止坐高铁”</em>#}
+{#                <em>【真理部】“寒门状元之死”</em>#}
+{#            </h2>#}
+{#            <h2>#}
+{#                <a href="">NANJING MASSACRE</a>#}
+{#                <em>【众人推】最高法院，呜呼哀哉</em>#}
+{#                <em>【网络民议】中国人民感情被伤害的频率远高于性生活</em>#}
+{#                <em>【网络民议】“母亲成了诈骗受害者，反而被禁止坐高铁”</em>#}
+{#                <em>【真理部】“寒门状元之死”</em>#}
+{#            </h2>#}
+{#        </section>#}
+{#        <!--快捷导航-->#}
+{#    </div>#}
+{% endblock %}
+
+<!--友链-->
+<nav class="footer">
+    <div class="footer-content clearfix">
+        <p class="brand"></p>
+        <ul>
+            <li class="title">翻墙</li>
+            <li><a href="https://www.fanqiangzhe.com/">翻墙者</a></li>
+            <li><a href="https://github.com/bannedbook/fanqiang/wiki">GitHub翻墙教程</a></li>
+            <li><a href="http://dongtaiwang.com/loc/phome.php?v=0">动态网翻墙</a></li>
+        </ul>
+        <ul>
+            <li class="title">维权</li>
+            <li><a href="http://www.tiananmenmother.org/">天安门母亲</a></li>
+            <li><a href="https://wqw2010.blogspot.com/">维权网</a></li>
+            <li><a href="http://woyaolian.org/">我要立案</a></li>
+            <li><a href="https://www.renminbao.com/">人民报</a></li>
+            <li><a href="https://www.chinaaid.net/">对华援助协会</a></li>
+
+
+
+        </ul>
+        <ul>
+            <li class="title">中国人权</li>
+            <li><a href="https://www.hrichina.org/chs">中国人权</a></li>
+            <li><a href="https://www.pbs.org/wgbh/pages/frontline/tankman/">TankMan</a></li>
+            <li><a href="http://woeser.middle-way.net/">INVISIBLE TIBET</a></li>
+            <li><a href="https://chinese.uhrp.org/">UYGHUR HUMAN RIGHTS PROJECT</a></li>
+            <li><a href="http://biweeklyarchive.hrichina.org/article/8416.html">中国人权双周刊</a></li>
+        </ul>
+        <ul>
+            <li class="title">自由</li>
+            <li><a href="https://freeweibo.com/">自由微博</a></li>
+            <li><a href="http://www.cnd.org/">CND</a></li>
+            <li><a href="https://www.tuidang.org/">退党服务中心</a></li>
+            <li><a href="https://www.adhrrf.org/">保护人权与宗教自由协会</a></li>
+            <li><a href="https://cmcn.org/">公民</a></li>
+
+
+
+        </ul>
+        <ul>
+            <li class="title">明主</li>
+            <li><a href="https://theinitium.com/">端传媒</a></li>
+            <li><a href="http://www.falundafamuseum.org/">法轮大法真相博物馆</a></li>
+            <li><a href="https://bowenpress.com/">博闻社</a></li>
+            <li><a href="http://www.zhuichaguoji.org/">追查国际</a></li>
+            <li><a href="http://beijingspring.com/bj2/bbs/index.htm">北京之春</a></li>
+
+
+        </ul>
+    </div>
+</nav>
+
+<!--页脚-->
+<footer>
+    <ul>
+        <p>THE TRUTH OF CHINA 版权所有 ©️ 2018-2019</p>
+    </ul>
+</footer>
+
+{% block custom_js %}
+
+    <script src="{% static 'js/main.js' %}"></script>
+
+{% endblock %}
+</body>
+</html>

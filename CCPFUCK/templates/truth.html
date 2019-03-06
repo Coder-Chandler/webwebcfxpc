@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}TRUTH{% endblock %}
+
+{% block main_content %}
+    <!--主体-->
+    <div class="container">
+        <!--广告内容-->
+        <section class="product clearfix">
+            <div id="home_grid">
+                {% for article in all_article.object_list %}
+                    <div class="home_grid_block">
+                        <div class="home_grid_thumb">
+                            <a href="{% url 'article:article_detail' article.id %}"
+                               rel="bookmark" title="{{ article.name }}">
+                                {#                                <img src="{{ MEDIA_URL }}{{ article.image }}">#}
+                            </a>
+                        </div>
+                        <div class="grid_article">
+                            <h3>
+                                <a href="{% url 'article:article_detail' article.id %}" rel="bookmark"
+                                   title="{{ article.name }}">
+                                    {{ article.name }}
+                                </a>
+                            </h3>
+                            {{ article.desc }}
+                            <div class="grid_article_date">
+                                {{ article.add_time }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                <div class="clear"></div>
+
+                {#                <div class="view_all_articles">#}
+                {#                    <a href="">更多文章 »</a>#}
+                {#                </div>#}
+            </div>
+        </section>
+        <div class="pageturn">
+            <ul class="pagelist">
+                {% if all_orgs.has_previous %}
+                    <li class="long"><a href="?{{ all_article.previous_page_number.querystring }}">上一页</a></li>
+                {% endif %}
+                {% for page in all_article.pages %}
+                    {% if page %}
+                        {% ifequal page all_article.number %}
+                            <li class="active"><a href="?{{ page.querystring }}">{{ page }}</a></li>
+                        {% else %}
+                            <li><a href="?{{ page.querystring }}" class="page">{{ page }}</a></li>
+                        {% endifequal %}
+                    {% else %}
+                        <li class="none"><a href="">...</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if all_article.has_next %}
+                    <li class="long"><a href="?{{ all_article.next_page_number.querystring }}">下一页</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
